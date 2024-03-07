@@ -1,5 +1,5 @@
 """
-ASGI config for todo project.
+ASGI config for apps project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

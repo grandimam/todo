@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'todo.polls',
+    'apps.polls',
 ]
 
 MIDDLEWARE = [
@@ -42,7 +42,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR + "/todo" + "/templates"],
+        'DIRS': [BASE_DIR + "/apps" + "/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,7 +64,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR  + '/db.sqlite3',
+        'NAME': BASE_DIR + '/db.sqlite3',
     }
 }
 
