@@ -1,10 +1,25 @@
-<h1>{{ question.question_text }}</h1>
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-<form action="{% url 'polls:vote' question.id %}" method="post">
-    {% csrf_token %}
-    {% for choice in question.choice_set.all %}
-        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-    {% endfor %}
-    <button type="submit">Vote</button>
-</form>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-left">
+        <h1>Poll Question</h1>
+    </div>
+    <div class="row justify-content-center">
+        <h2>{{ poll.question.question_text }}</h2>
+    </div>
+    <div class="row justify-content-center">
+        <form id="vote-event" data-url="{% url 'detail' poll.question.id %}" method="post">
+            {% csrf_token %}
+            {% for choice in poll.question.choice_set.all %}
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+            {% endfor %}
+            <p>
+                <button class="btn btn-primary" type="submit">Vote</button>
+                <button class="btn btn-warning" type="submit">Cancel</button>
+            </p>
+        </form>
+    </div>
+</div>
+{% endblock content %}
