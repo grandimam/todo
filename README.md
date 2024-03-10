@@ -1,4 +1,4 @@
-# Todo
+# Polls Platform
 
 ### Getting Started
 
